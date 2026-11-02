@@ -1,67 +1,141 @@
-import Avatar from 'components/Avatar'
-import logo from 'assets/logo.svg'
-
-const randoms = [
-  [1, 2],
-  [3, 4, 5],
-  [6, 7]
+const socialLinks = [
+  { name: 'Instagram', href: 'https://www.instagram.com/' },
+  { name: 'YouTube', href: 'https://www.youtube.com/' },
+  { name: 'Spotify', href: 'https://open.spotify.com/' },
+  { name: 'Bandcamp', href: 'https://bandcamp.com/' }
 ]
 
 function App() {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="h-screen sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
-        <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-          <div className="sm:max-w-lg">
-            <div className="my-4">
-              <Avatar size="large" src={logo} />
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Welcome!
-            </h1>
-            <p className="mt-4 text-xl text-gray-500">
-              This is a boilerplate build with Vite, React 18, TypeScript,
-              Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+    <div className="min-h-screen bg-[#090909] text-zinc-100">
+      <header className="mx-auto flex max-w-6xl items-center justify-between gap-6 p-6 sm:px-10">
+        <a
+          className="font-serif text-lg font-bold text-white"
+          href="#accueil"
+          aria-label="Daymon's, accueil"
+        >
+          DAYMON&apos;S
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul className="flex flex-wrap justify-end gap-x-5 gap-y-2 text-xs uppercase tracking-[0.16em] text-zinc-400 sm:gap-x-8">
+            <li>
+              <a className="transition-colors hover:text-white" href="#ecouter">
+                Écouter
+              </a>
+            </li>
+            <li>
+              <a
+                className="transition-colors hover:text-white"
+                href="#concerts"
+              >
+                Concerts
+              </a>
+            </li>
+            <li>
+              <a className="transition-colors hover:text-white" href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section
+          id="accueil"
+          className="flex min-h-[72vh] flex-col items-center justify-center px-6 pb-20 pt-8 text-center"
+        >
+          <img
+            src="/daymons.jfif"
+            alt="Logo de Daymon's"
+            className="mb-8 size-52 object-contain sm:size-64"
+          />
+          <p className="mb-3 text-xs uppercase tracking-[0.28em] text-red-500">
+            Rouen, France
+          </p>
+          <h1 className="font-serif text-4xl font-bold text-white sm:text-6xl">
+            Daymon&apos;s
+          </h1>
+          <p className="mt-4 text-sm uppercase tracking-[0.2em] text-zinc-400 sm:text-base">
+            Groupe de métal
+          </p>
+          <a
+            href="#ecouter"
+            className="mt-10 border border-zinc-700 px-5 py-3 text-xs uppercase tracking-[0.16em] text-zinc-200 transition-colors hover:border-red-500 hover:text-white"
+          >
+            Découvrir la musique
+          </a>
+        </section>
+
+        <div className="mx-auto max-w-4xl px-6 sm:px-10">
+          <section
+            id="ecouter"
+            className="border-t border-zinc-800 py-16 sm:py-20"
+          >
+            <p className="mb-3 text-xs uppercase tracking-[0.22em] text-red-500">
+              01 / Musique
             </p>
-          </div>
-          <div className="my-10">
+            <h2 className="font-serif text-3xl font-bold text-white">
+              Écouter
+            </h2>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-400">
+              Les morceaux de Daymon&apos;s seront bientôt disponibles ici.
+            </p>
+          </section>
+
+          <section
+            id="concerts"
+            className="border-t border-zinc-800 py-16 sm:py-20"
+          >
+            <p className="mb-3 text-xs uppercase tracking-[0.22em] text-red-500">
+              02 / En live
+            </p>
+            <h2 className="font-serif text-3xl font-bold text-white">
+              Concerts
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-zinc-400">
+              Pas de concert annoncé pour le moment. À bientôt sur scène.
+            </p>
+          </section>
+
+          <section
+            id="contact"
+            className="border-t border-zinc-800 py-16 sm:py-20"
+          >
+            <p className="mb-3 text-xs uppercase tracking-[0.22em] text-red-500">
+              03 / Suivre
+            </p>
+            <h2 className="font-serif text-3xl font-bold text-white">
+              Rester en contact
+            </h2>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-zinc-300">
+              {socialLinks.map(({ name, href }) => (
+                <li key={name}>
+                  <a
+                    className="underline decoration-zinc-700 underline-offset-4 transition-colors hover:text-white hover:decoration-red-500"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${name} (lien provisoire)`}
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
             <a
-              href="vscode://"
-              className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
+              className="mt-8 inline-block text-sm text-zinc-400 transition-colors hover:text-white"
+              href="mailto:axel.duval@gmail.com"
             >
-              Start building for free
+              axel.duval@gmail.com
             </a>
-            <div
-              aria-hidden="true"
-              className="pointer-events-none mt-10 md:mt-0 lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-            >
-              <div className="absolute sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                <div className="flex items-center space-x-6 lg:space-x-8">
-                  {randoms.map((random, number) => (
-                    <div
-                      key={`random-${random[number]}`}
-                      className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8"
-                    >
-                      {random.map((number) => (
-                        <div
-                          key={`random-${number}`}
-                          className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100"
-                        >
-                          <img
-                            src={`https://picsum.photos/600?random=${number}`}
-                            alt=""
-                            className="size-full bg-indigo-100 object-cover object-center"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
+
+      <footer className="border-t border-zinc-900 p-6 text-center text-xs text-zinc-600">
+        Daymon&apos;s · Rouen
+      </footer>
     </div>
   )
 }

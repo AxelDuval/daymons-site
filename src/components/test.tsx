@@ -7,25 +7,18 @@ describe('<App />', () => {
     const { container } = render(<App />)
 
     expect(
-      screen.getByRole('heading', {
-        name: /Welcome!/i,
-        level: 1
-      })
+      screen.getByRole('heading', { name: "Daymon's", level: 1 })
     ).toBeInTheDocument()
-
     expect(
-      screen.getByText(
-        /This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier./i
-      )
-    ).toBeInTheDocument()
-
+      screen.getByRole('img', { name: "Logo de Daymon's" })
+    ).toHaveAttribute('src', '/daymons.jfif')
+    expect(screen.getByRole('heading', { name: 'Écouter' })).toBeInTheDocument()
     expect(
-      screen.getByRole('link', {
-        name: /start building for free/i
-      })
+      screen.getByText(/Pas de concert annoncé pour le moment/i)
     ).toBeInTheDocument()
-
-    expect(screen.getByRole('img')).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: 'axel.duval@gmail.com' })
+    ).toHaveAttribute('href', 'mailto:axel.duval@gmail.com')
 
     expect(container.firstChild).toBeInTheDocument()
   })
